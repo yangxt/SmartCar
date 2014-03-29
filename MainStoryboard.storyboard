@@ -44,18 +44,40 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" text="Instructions" translatesAutoresizingMaskIntoConstraints="NO" id="nea-nu-jvV">
-                                <rect key="frame" x="72" y="619" width="240" height="88"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Route Summary Shows Up Here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGP-el-UlS">
+                                <rect key="frame" x="0.0" y="637" width="384" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Route" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGP-el-UlS">
-                                <rect key="frame" x="92" y="590" width="200" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mr5-2N-gOM">
+                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Start Capturing" id="ASX-Qa-uva">
+                                        <connections>
+                                            <action selector="startCaptureButtonPressed:" destination="Qwv-gf-FFB" id="uSc-Ng-HbA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BOJ-5d-812"/>
+                                    <barButtonItem title="Stop Capturing" id="Xzl-9V-4x4">
+                                        <connections>
+                                            <action selector="stopCaptureButtonPressed:" destination="Qwv-gf-FFB" id="cWv-lx-5NO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GF7-jf-DAf">
+                                <rect key="frame" x="384" y="64" width="384" height="512"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Instruction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-iu-5UH">
+                                <rect key="frame" x="0.0" y="575" width="384" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -63,9 +85,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="SmartCar Assistant" id="Jck-Wn-VOU"/>
                     <connections>
-                        <outlet property="instructions" destination="nea-nu-jvV" id="rM3-RY-2dm"/>
+                        <outlet property="currentInstructionLabel" destination="aGh-iu-5UH" id="IVa-ez-keH"/>
+                        <outlet property="imageView" destination="GF7-jf-DAf" id="3JO-B4-02F"/>
                         <outlet property="mapCanvas" destination="8t1-7E-8oN" id="ywc-le-Lfe"/>
+                        <outlet property="startCaptureButton" destination="ASX-Qa-uva" id="4b6-SO-LgN"/>
+                        <outlet property="stopCaptureButton" destination="Xzl-9V-4x4" id="oSV-aF-jnf"/>
                         <outlet property="summary" destination="dGP-el-UlS" id="oar-RX-SgB"/>
+                        <outlet property="toolbar" destination="mr5-2N-gOM" id="HF4-ss-Icj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyO-fi-JL8" userLabel="First Responder" sceneMemberID="firstResponder"/>

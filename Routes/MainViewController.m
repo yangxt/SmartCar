@@ -15,23 +15,59 @@
     CLLocationManager *locationManager;
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if (isCapturing) {
+        [videoCamera stop];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    videoCamera = [[CvVideoCamera alloc]
+                        initWithParentView:self.imageView];
+    videoCamera.delegate = self;
+    videoCamera.defaultAVCaptureDevicePosition =
+    AVCaptureDevicePositionBack;
+    
+    videoCamera.defaultAVCaptureSessionPreset =
+    AVCaptureSessionPreset640x480;
+    videoCamera.defaultAVCaptureVideoOrientation =
+    AVCaptureVideoOrientationPortrait;
+    videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
+    videoCamera.defaultFPS = 30;
+    isCapturing = NO;
     
     locationManager = [[CLLocationManager alloc] init];
     
 	// Do any additional setup after loading the view, typically from a nib.
     [[TTSDKContext sharedContext] setDeveloperKey:@API_KEY];
     
-	CGRect mapFrame = CGRectMake(0, 0, mapCanvas.frame.size.width, mapCanvas.frame.size.height);
-	mapViewController = [[TTUIMapViewController alloc] initWithFrame: mapFrame andInitialMaxConcurrentOperations: 2];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(getCurrentLocationFrequently) userInfo:nil repeats:YES];
     
-    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(getCurrentLocationFrequently) userInfo:nil repeats:YES];
+    [currentInstructionLabel setText:@""];
+    
+    [self performSelector:@selector(startCaptureButtonPressed:) withObject:nil afterDelay:1.0f];
 }
 
-- (void)setInstructionsLabel:(NSString *)text {
-    instructions.text = text;    
+- (IBAction)startCaptureButtonPressed:(id)sender
+{
+    [videoCamera start];
+    isCapturing = YES;
+}
+
+- (IBAction)stopCaptureButtonPressed:(id)sender
+{
+    [videoCamera stop];
+    isCapturing = NO;
+}
+
+- (void)processImage:(cv::Mat&)image
+{
+    // Do some OpenCV processing with the image
 }
 
 -(void)setRouteLayer:(TTAPIRoutingData *)route {
@@ -55,29 +91,39 @@
     source.outlineColor = [UIColor redColor];
     source.borderThickness = 2;
 }
+
+- (void)updateCurrentInstructionLabel:(NSString *)text
+{
+    currentInstructionLabel.text = text;
+}
  
 // From the TTAPIRoutingDelegate protocol.
 // This method will be called when the route data is received.
--(void) handleRoute:(TTAPIRoutingData *)route withPayload:(id)payload{
+-(void)handleRoute:(TTAPIRoutingData *)route withPayload:(id)payload{
     
     NSArray *currentInstructions = [route getInstructions];
+    
     NSString *tempString = @"";
     
-    summary.text = [NSString stringWithFormat:@"Route: %d meters, %d minutes.",route.summary.totalDistanceMeters, route.summary.totalTimeSeconds/60];
-    
     for ( TTAPIRouteInstruction *instruction in currentInstructions ) {
-        tempString = [NSString stringWithFormat:@"%@. %@(%@)\n",tempString,instruction.text, instruction.roadName] ;
+        tempString = [NSString stringWithFormat:@"%@➡️ %@ %@\n", tempString, instruction.text, instruction.roadName] ;
     }
     
-    // The instructions must be updated in the main thread.
-    [self performSelectorOnMainThread:@selector(setInstructionsLabel:) withObject:tempString waitUntilDone:YES];
+    // NSLog(@"%@", [NSString stringWithFormat:@"Summary: %d Meters - %d Minutes.", route.summary.totalDistanceMeters, route.summary.totalTimeSeconds / 60]);
+    
+    [summary setText: [NSString stringWithFormat:@"Summary: %d Meters - %d Minutes.", route.summary.totalDistanceMeters, route.summary.totalTimeSeconds / 60]];
+    
+    [self performSelectorOnMainThread:@selector(updateCurrentInstructionLabel:) withObject:tempString waitUntilDone:YES];
     
     [self performSelectorOnMainThread:@selector(setRouteLayer:) withObject:route waitUntilDone:YES];
 }
 
 - (void)getCurrentLocationFrequently
 {
-    NSLog(@"Get current location.");
+    CGRect mapFrame = CGRectMake(0, 0, mapCanvas.frame.size.width, mapCanvas.frame.size.height);
+	mapViewController = [[TTUIMapViewController alloc] initWithFrame: mapFrame andInitialMaxConcurrentOperations: 2];
+    
+    // NSLog(@"Get current location.");
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     locationManager.distanceFilter = 0.0;
@@ -138,25 +184,5 @@
     self.longitudelNumber = [NSNumber numberWithFloat: currentLocation.coordinate.longitude];
     self.latitudelNumber = [NSNumber numberWithFloat: currentLocation.coordinate.latitude];
 }
-
-/*
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
-    
-    if (currentLocation != nil) {
-        self.longitudeLabel = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-        self.latitudeLabel = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-    }
-    NSLog(@"longitude: %@", self.longitudeLabel);
-    
-    self.longitudelNumber = [NSNumber numberWithFloat: currentLocation.coordinate.longitude];
-    self.latitudelNumber = [NSNumber numberWithFloat: currentLocation.coordinate.latitude];
-    
-    [self callRouting];
-}
- */
-
 
 @end
