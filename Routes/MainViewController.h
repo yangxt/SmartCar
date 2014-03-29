@@ -9,6 +9,7 @@
 #import <opencv2/highgui/ios.h>
 #import <TomTomLBS/TTLBSSDK.h>
 #import <MapKit/MapKit.h>
+#import <CoreMotion/CoreMotion.h>
 
 @interface MainViewController : UIViewController <TTAPIRoutingDelegate, CLLocationManagerDelegate, CvVideoCameraDelegate>
 {
@@ -31,6 +32,7 @@
     BOOL isCapturing;
 }
 
+@property (strong, nonatomic) IBOutlet UILabel *routeSummaryLabel;
 @property (strong, nonatomic) NSString *latitudeLabel;
 @property (strong, nonatomic) NSString *longitudeLabel;
 
@@ -43,6 +45,8 @@
 @property (nonatomic, strong) IBOutlet UIToolbar* toolbar;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem* startCaptureButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem* stopCaptureButton;
+
+@property (nonatomic) CMMotionManager *motionManager;
 
 // - (void)setInstructionsLabel:(NSString *)text;
 - (IBAction)startCaptureButtonPressed:(id)sender;

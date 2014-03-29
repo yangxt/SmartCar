@@ -28,6 +28,7 @@
 		D47B6DA818E718540090365C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DA718E718540090365C /* CoreVideo.framework */; };
 		D47B6DAC18E7189E0090365C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DAB18E7189E0090365C /* CoreMedia.framework */; };
 		D47B6DAE18E718CB0090365C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DAD18E718CB0090365C /* AssetsLibrary.framework */; };
+		D47B6DB518E76E930090365C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DA918E7186D0090365C /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 				D47B6DA618E718340090365C /* AVFoundation.framework in Frameworks */,
 				8D471FF018E68E15001A8307 /* MapKit.framework in Frameworks */,
 				8BA5F38A150DF138004CF91E /* libsqlite3.0.dylib in Frameworks */,
+				D47B6DB518E76E930090365C /* CoreMotion.framework in Frameworks */,
 				8BA5F388150DF132004CF91E /* CoreLocation.framework in Frameworks */,
 				8BA5F386150DF108004CF91E /* SystemConfiguration.framework in Frameworks */,
 				8BA5F384150DF0FA004CF91E /* QuartzCore.framework in Frameworks */,

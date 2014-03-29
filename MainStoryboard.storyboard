@@ -95,6 +95,7 @@
                         <outlet property="imageView" destination="GF7-jf-DAf" id="3JO-B4-02F"/>
                         <outlet property="mapCanvas" destination="8t1-7E-8oN" id="ywc-le-Lfe"/>
                         <outlet property="restInstructions" destination="EmO-k9-bFC" id="0if-KU-Oph"/>
+                        <outlet property="routeSummaryLabel" destination="dGP-el-UlS" id="VKn-YT-6ps"/>
                         <outlet property="startCaptureButton" destination="ASX-Qa-uva" id="4b6-SO-LgN"/>
                         <outlet property="stopCaptureButton" destination="Xzl-9V-4x4" id="oSV-aF-jnf"/>
                         <outlet property="summary" destination="dGP-el-UlS" id="oar-RX-SgB"/>

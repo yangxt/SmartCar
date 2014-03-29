@@ -50,9 +50,49 @@ using namespace cv;
     [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(getCurrentLocationFrequently) userInfo:nil repeats:YES];
     
     [currentInstructionLabel setText:@""];
-    
+    self.routeSummaryLabel.hidden = YES;
     [self performSelector:@selector(startCaptureButtonPressed:) withObject:nil afterDelay:1.0f];
+    
+    // Accident-protection system.
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = 1.0;
+    self.motionManager.gyroUpdateInterval = 1.0;
+    
+    // Acceleration
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+                                                 [self outputAccelertionData:accelerometerData.acceleration];
+                                                 if(error){
+                                                     
+                                                     NSLog(@"%@", error);
+                                                 }
+                                             }];
+    
+    // Rotation
+    [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
+                                    withHandler:^(CMGyroData *gyroData, NSError *error) {
+                                        [self outputRotationData:gyroData.rotationRate];
+                                    }];
+
 }
+
+- (void)outputAccelertionData:(CMAcceleration)acceleration
+{
+    if (fabs(acceleration.x) > .1||fabs(acceleration.x) > .1||fabs(acceleration.x) > .1){
+        NSLog(@"Accident !");
+    }
+    // NSLog(@"%@",[NSString stringWithFormat:@" %.2fg",acceleration.x]);
+    
+}
+- (void)outputRotationData:(CMRotationRate)rotation
+{
+    if (fabs(rotation.x) > 0.1 || fabs(rotation.y) > 0.1 || fabs(rotation.x) > 0.1) {
+        NSLog(@"Rotation x: %@", [NSString stringWithFormat:@" %.2f",rotation.x]);
+        NSLog(@"Rotation y: %@", [NSString stringWithFormat:@" %.2f",rotation.y]);
+        NSLog(@"Rotation z: %@", [NSString stringWithFormat:@" %.2f",rotation.z]);
+    }
+}
+
 
 - (IBAction)startCaptureButtonPressed:(id)sender
 {
@@ -72,7 +112,8 @@ using namespace cv;
     
     cv::Mat src = image;
     cv::Mat dst, cdst;
-    cv::Canny(src, dst, 50, 200, 3);
+    // cv::Canny(src, dst, 50, 200, 3);
+    cv::Canny(src, dst, 100, 400, 3);
     cv::cvtColor(dst, cdst, CV_GRAY2BGR);
     
     vector<Vec2f> lines;
@@ -88,10 +129,10 @@ using namespace cv;
         pt1.y = cvRound(y0 + 1000*(a));
         pt2.x = cvRound(x0 - 1000*(-b));
         pt2.y = cvRound(y0 - 1000*(a));
-        line( cdst, pt1, pt2, Scalar(0,0,255), 3, CV_AA);
+        line( src, pt1, pt2, Scalar(0,0,255), 3, CV_AA);
     }
 
-    cdst.copyTo(image);
+    src.copyTo(image);
 }
 
 -(void)setRouteLayer:(TTAPIRoutingData *)route {
@@ -127,6 +168,7 @@ using namespace cv;
     
     if (firstInstruction.text != nil || firstInstruction.roadName != nil) {
         firstInstructionStr = [NSString stringWithFormat:@"%@ %@ %@\n", firstInstructionStr, firstInstruction.text, firstInstruction.roadName] ;
+        self.routeSummaryLabel.hidden = NO;
     }
     
     NSString *restInstructionsStr = @"";
