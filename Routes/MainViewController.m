@@ -99,7 +99,8 @@
     //Let's create a Route.
     TTAPIRouting *routing = [[TTAPIRouting alloc]init];
     
-    TTCoordinates *amsterdam = [[TTCoordinates alloc] initWithLatitude:[NSNumber numberWithDouble:40] andLongitude:[NSNumber numberWithDouble:-70]];
+    //Lot 21 latitude and longtitude: 40.344841, -74.645676
+    TTCoordinates *finalCoordinates = [[TTCoordinates alloc] initWithLatitude:[NSNumber numberWithDouble:40.344841] andLongitude:[NSNumber numberWithDouble:-74.645676]];
     
     TTCoordinates *paris = [[TTCoordinates alloc]initWithLatitude:self.latitudelNumber andLongitude:self.longitudelNumber];
     
@@ -108,7 +109,9 @@
     [[TTAPIRoutingOptionalParameters alloc]init];
     params.includeDataPath = YES;
     params.dataPathZoomLevel = 17;
-    [routing getRouteWithStartPoint:paris andEndPoint:amsterdam andRouteType:Walk andOptionalParameters:params andNotifyDelegate:self withPayload:nil];
+    
+    [routing getRouteWithStartPoint:paris andEndPoint:finalCoordinates andRouteType:Walk andOptionalParameters:params andNotifyDelegate:self withPayload:nil];
+    
 }
 
 #pragma mark - CLLocationManagerDelegate
