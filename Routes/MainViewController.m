@@ -26,6 +26,8 @@
     
 	CGRect mapFrame = CGRectMake(0, 0, mapCanvas.frame.size.width, mapCanvas.frame.size.height);
 	mapViewController = [[TTUIMapViewController alloc] initWithFrame: mapFrame andInitialMaxConcurrentOperations: 2];
+    
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(getCurrentLocationFrequently) userInfo:nil repeats:YES];
 }
 
 - (void)setInstructionsLabel:(NSString *)text {
@@ -73,9 +75,8 @@
     [self performSelectorOnMainThread:@selector(setRouteLayer:) withObject:route waitUntilDone:YES];
 }
 
-
-- (IBAction)getCurrentLocation:(id)sender {
-    
+- (void)getCurrentLocationFrequently
+{
     NSLog(@"Get current location.");
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -108,7 +109,6 @@
     params.includeDataPath = YES;
     params.dataPathZoomLevel = 17;
     [routing getRouteWithStartPoint:paris andEndPoint:amsterdam andRouteType:Walk andOptionalParameters:params andNotifyDelegate:self withPayload:nil];
-    
 }
 
 #pragma mark - CLLocationManagerDelegate

@@ -32,6 +32,4 @@
 
 @property (strong, nonatomic) NSString *addressLabel;
 
-- (IBAction)getCurrentLocation:(id)sender;
-
 @end

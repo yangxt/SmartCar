@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BA5F32E150A48DA004CF91E"
-               BuildableName = "Routes.app"
+               BuildableName = "SmartCar.app"
                BlueprintName = "Routes"
                ReferencedContainer = "container:Routes.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BA5F32E150A48DA004CF91E"
-            BuildableName = "Routes.app"
+            BuildableName = "SmartCar.app"
             BlueprintName = "Routes"
             ReferencedContainer = "container:Routes.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BA5F32E150A48DA004CF91E"
-            BuildableName = "Routes.app"
+            BuildableName = "SmartCar.app"
             BlueprintName = "Routes"
             ReferencedContainer = "container:Routes.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BA5F32E150A48DA004CF91E"
-            BuildableName = "Routes.app"
+            BuildableName = "SmartCar.app"
             BlueprintName = "Routes"
             ReferencedContainer = "container:Routes.xcodeproj">
          </BuildableReference>

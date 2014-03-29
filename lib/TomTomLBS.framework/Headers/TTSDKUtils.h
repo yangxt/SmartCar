@@ -26,21 +26,21 @@ typedef enum {
 /**
  * Convers a TTProjection into its String equivalent
  */
-__attribute__((visibility("default")))NSString * const TTProjection_toString[2];
+__attribute__((visibility("default"))) extern NSString * const TTProjection_toString[2];
 
-__attribute__((visibility("default")))double const MinXYMeters;
+__attribute__((visibility("default"))) extern double const MinXYMeters;
 
-__attribute__((visibility("default")))double const MaxXYMeters;
+__attribute__((visibility("default"))) extern double const MaxXYMeters;
 
-__attribute__((visibility("default")))double const WorldWidthMeter;
+__attribute__((visibility("default"))) extern double const WorldWidthMeter;
 
-__attribute__((visibility("default")))int const TileWidthPixels;
+__attribute__((visibility("default"))) extern int const TileWidthPixels;
 
-__attribute__((visibility("default")))int const ZoomLevels;
+__attribute__((visibility("default"))) extern int const ZoomLevels;
 
-__attribute__((visibility("default")))int const DefaultMaxZoomLevel;
+__attribute__((visibility("default"))) extern int const DefaultMaxZoomLevel;
 
-__attribute__((visibility("default")))int const DefaultMinZoomLevel;
+__attribute__((visibility("default"))) extern int const DefaultMinZoomLevel;
 
 /*
  * Defines the TTLayerType for API tile requests.
@@ -55,7 +55,7 @@ typedef enum {
 /**
  * Convers a TTLayerType into its String equivalent
  */
-__attribute__((visibility("default")))NSString * const TTLayerType_toString[3];
+__attribute__((visibility("default"))) extern NSString * const TTLayerType_toString[3];
 
 /*
  * Defines the TTImageFormat for API tile requests.
@@ -69,7 +69,7 @@ typedef enum {
 /**
  * Convers a TTImageFormat into its String equivalent
  */
-__attribute__((visibility("default")))NSString * const TTImageFormat_toString[2];
+__attribute__((visibility("default"))) extern NSString * const TTImageFormat_toString[2];
 
 /**
  * Coordinates class. Composed of latitude and longitude.
@@ -187,7 +187,7 @@ enum TTMapLayerType {
     /* The 3rd party Tile Source */
     TTMapLayerType_OtherTileSource = 3
 };
-typedef NSUInteger TTMapLayerType;
+// typedef NSUInteger TTMapLayerType;
 
 /**
  * Enumeration for the souce types. 
@@ -203,7 +203,7 @@ enum TTTileSourceType {
 	/* The Community Tile Source. */
 	TTTileSourceType_Community = 2
 };
-typedef NSUInteger TTTileSourceType;
+// typedef NSUInteger TTTileSourceType;
 
 
 /**
@@ -215,7 +215,7 @@ enum TTCachePurgeStrategy {
 	/* First In First Out strategy. */
 	TTCachePurgeStrategyFIFO = 1
 };
-typedef NSUInteger TTCachePurgeStrategy;
+// typedef NSUInteger TTCachePurgeStrategy;
 
 /**
  * A coordinate representation in degrees, minutes and seconds format.
@@ -283,7 +283,7 @@ CGPoint metersToTileXy (CGPoint meters, int zoom);
  */
 CGPoint offsetOfPointInTile (CGPoint point, int zoom);
 
-__attribute__((visibility("default")))NSString * const MapCacheKey;
+__attribute__((visibility("default"))) extern NSString * const MapCacheKey;
 
 /**
  * SDK Notifications

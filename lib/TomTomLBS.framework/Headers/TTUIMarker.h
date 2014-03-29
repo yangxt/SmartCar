@@ -39,7 +39,7 @@ enum TTUIMarkerType {
     /*An 3rd party Pin */
     TTUIMarkerType_another
 };
-typedef NSUInteger TTUIMarkerType;
+// typedef NSUInteger TTUIMarkerType;
 
 #define TTUIMarkerTypes_COUNT 5
 

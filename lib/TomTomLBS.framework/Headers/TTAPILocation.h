@@ -29,7 +29,7 @@ typedef enum {
 /**
  * Convers a TTLocationOrder into its String equivalent.
  */
-__attribute__((visibility("default")))NSString * const TTLocationOrder_toString[2];
+__attribute__((visibility("default"))) extern NSString * const TTLocationOrder_toString[2];
 
 
 /*
@@ -47,7 +47,7 @@ typedef enum {
 /**
  * Convers a TTReverseGeocodeType into its String equivalent.
  */
-__attribute__((visibility("default")))NSString * const TTReverseGeocodeType_toString[5];
+__attribute__((visibility("default"))) extern NSString * const TTReverseGeocodeType_toString[5];
 
 /**
  * Defines the optional parameters for the geocode requests.

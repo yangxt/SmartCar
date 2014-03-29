@@ -23,7 +23,7 @@ typedef enum {
 /**
  * Convers a TTMapType into its String equivalent.
  */
-__attribute__((visibility("default")))NSString * const TTMapType_toString[2];
+__attribute__((visibility("default"))) extern NSString * const TTMapType_toString[2];
 
 /**
  * Defines the optional parameters for the ViewPort Description API.

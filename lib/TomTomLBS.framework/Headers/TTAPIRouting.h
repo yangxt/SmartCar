@@ -36,7 +36,7 @@ typedef enum {
 /**
  * Convers a RouteType into its String equivalent.
  */
-__attribute__((visibility("default")))NSString * const TTRouteType_toString[6];
+__attribute__((visibility("default"))) extern NSString * const TTRouteType_toString[6];
 
 /**
  * Day type for configuraing the departure date when calculating a route.
@@ -58,7 +58,7 @@ typedef enum {
 /**
  * Convers a TTRouteDayType into its String equivalent.
  */
-__attribute__((visibility("default")))NSString * const TTRouteDayType_toString[11];
+__attribute__((visibility("default"))) extern NSString * const TTRouteDayType_toString[11];
 
 /**
  * IQ Route type for when calculating a route.
@@ -75,7 +75,7 @@ typedef enum {
 /**
  * Convers a TTRouteIQType into its String equivalent.
  */
-__attribute__((visibility("default")))NSString * const TTRouteIQType_toString[3];
+__attribute__((visibility("default"))) extern NSString * const TTRouteIQType_toString[3];
 
 @interface TTAPIRoutingOptionalParameters: NSObject {
 @private

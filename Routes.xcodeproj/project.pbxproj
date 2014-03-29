@@ -23,6 +23,11 @@
 		8BE2804115D92A3D00699703 /* TomTomLBS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE2804015D92A3D00699703 /* TomTomLBS.framework */; };
 		8D471FF018E68E15001A8307 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D471FEF18E68E15001A8307 /* MapKit.framework */; };
 		D4589EA818E6A66F00DCF997 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4589EA718E6A66F00DCF997 /* MainStoryboard.storyboard */; };
+		D47B6DA118E713DE0090365C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DA018E713DE0090365C /* opencv2.framework */; };
+		D47B6DA618E718340090365C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DA518E718340090365C /* AVFoundation.framework */; };
+		D47B6DA818E718540090365C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DA718E718540090365C /* CoreVideo.framework */; };
+		D47B6DAC18E7189E0090365C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DAB18E7189E0090365C /* CoreMedia.framework */; };
+		D47B6DAE18E718CB0090365C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DAD18E718CB0090365C /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +52,12 @@
 		8BE2804015D92A3D00699703 /* TomTomLBS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TomTomLBS.framework; path = lib/TomTomLBS.framework; sourceTree = "<group>"; };
 		8D471FEF18E68E15001A8307 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D4589EA718E6A66F00DCF997 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		D47B6DA018E713DE0090365C /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D47B6DA518E718340090365C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D47B6DA718E718540090365C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		D47B6DA918E7186D0090365C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		D47B6DAB18E7189E0090365C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D47B6DAD18E718CB0090365C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +65,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47B6DAE18E718CB0090365C /* AssetsLibrary.framework in Frameworks */,
+				D47B6DAC18E7189E0090365C /* CoreMedia.framework in Frameworks */,
+				D47B6DA818E718540090365C /* CoreVideo.framework in Frameworks */,
+				D47B6DA618E718340090365C /* AVFoundation.framework in Frameworks */,
 				8D471FF018E68E15001A8307 /* MapKit.framework in Frameworks */,
 				8BA5F38A150DF138004CF91E /* libsqlite3.0.dylib in Frameworks */,
 				8BA5F388150DF132004CF91E /* CoreLocation.framework in Frameworks */,
 				8BA5F386150DF108004CF91E /* SystemConfiguration.framework in Frameworks */,
 				8BA5F384150DF0FA004CF91E /* QuartzCore.framework in Frameworks */,
 				8BA5F334150A48DA004CF91E /* UIKit.framework in Frameworks */,
+				D47B6DA118E713DE0090365C /* opencv2.framework in Frameworks */,
 				8BA5F382150DF0E4004CF91E /* CoreGraphics.framework in Frameworks */,
 				8BA5F380150DF0DC004CF91E /* libz.dylib in Frameworks */,
 				8BA5F37E150DF0CC004CF91E /* CoreFoundation.framework in Frameworks */,
@@ -96,6 +112,12 @@
 		8BA5F332150A48DA004CF91E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D47B6DAD18E718CB0090365C /* AssetsLibrary.framework */,
+				D47B6DAB18E7189E0090365C /* CoreMedia.framework */,
+				D47B6DA918E7186D0090365C /* CoreMotion.framework */,
+				D47B6DA718E718540090365C /* CoreVideo.framework */,
+				D47B6DA518E718340090365C /* AVFoundation.framework */,
+				D47B6DA018E713DE0090365C /* opencv2.framework */,
 				8BA5F389150DF138004CF91E /* libsqlite3.0.dylib */,
 				8BA5F387150DF132004CF91E /* CoreLocation.framework */,
 				8BA5F385150DF108004CF91E /* SystemConfiguration.framework */,
@@ -248,17 +270,22 @@
 		8BA5F353150A48DA004CF91E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+					"$(PROJECT_DIR)",
 				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Routes/Routes-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/lib/headers/**";
 				INFOPLIST_FILE = "Routes/Routes-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = SmartCar;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
