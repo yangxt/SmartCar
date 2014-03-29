@@ -34,7 +34,7 @@
     AVCaptureDevicePositionBack;
     
     videoCamera.defaultAVCaptureSessionPreset =
-    AVCaptureSessionPreset640x480;
+    AVCaptureSessionPreset352x288;
     videoCamera.defaultAVCaptureVideoOrientation =
     AVCaptureVideoOrientationPortrait;
     videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
@@ -92,30 +92,37 @@
     source.borderThickness = 2;
 }
 
-- (void)updateCurrentInstructionLabel:(NSString *)text
+- (void)updateCurrentInstructionLabel:(TTAPIRoutingData *)route
 {
-    currentInstructionLabel.text = text;
+    [self performSelectorOnMainThread:@selector(setRouteLayer:) withObject:route waitUntilDone:YES];
+    
+    NSArray *currentInstructions = [route getInstructions];
+    
+    NSString *firstInstructionStr = @"";
+    TTAPIRouteInstruction *firstInstruction = currentInstructions[0];
+    
+    if (firstInstruction.text != nil || firstInstruction.roadName != nil) {
+        firstInstructionStr = [NSString stringWithFormat:@"%@ %@ %@\n", firstInstructionStr, firstInstruction.text, firstInstruction.roadName] ;
+    }
+    
+    NSString *restInstructionsStr = @"";
+    for (int i = 1; i < [currentInstructions count]; i++) {
+        TTAPIRouteInstruction *theInstruction = currentInstructions[i];
+        restInstructionsStr = [NSString stringWithFormat:@"%@ - %@ %@\n\n", restInstructionsStr, theInstruction.text, theInstruction.roadName];
+    }
+    
+    route.summary.totalDistanceMeters / 1609.34 > 1 ? [summary setText: [NSString stringWithFormat:@"Summary: %.2f Miles - %d Minutes.", route.summary.totalDistanceMeters / 1609.34, route.summary.totalTimeSeconds / 60]] : [summary setText: [NSString stringWithFormat:@"Summary: %.2f Mile - %d Minutes.", route.summary.totalDistanceMeters / 1609.34, route.summary.totalTimeSeconds / 60]];
+
+    currentInstructionLabel.text = firstInstructionStr;
+    
+    restInstructions.text = restInstructionsStr;
 }
  
 // From the TTAPIRoutingDelegate protocol.
 // This method will be called when the route data is received.
--(void)handleRoute:(TTAPIRoutingData *)route withPayload:(id)payload{
+-(void)handleRoute:(TTAPIRoutingData *)route withPayload:(id)payload {
     
-    NSArray *currentInstructions = [route getInstructions];
-    
-    NSString *tempString = @"";
-    
-    for ( TTAPIRouteInstruction *instruction in currentInstructions ) {
-        tempString = [NSString stringWithFormat:@"%@➡️ %@ %@\n", tempString, instruction.text, instruction.roadName] ;
-    }
-    
-    // NSLog(@"%@", [NSString stringWithFormat:@"Summary: %d Meters - %d Minutes.", route.summary.totalDistanceMeters, route.summary.totalTimeSeconds / 60]);
-    
-    [summary setText: [NSString stringWithFormat:@"Summary: %d Meters - %d Minutes.", route.summary.totalDistanceMeters, route.summary.totalTimeSeconds / 60]];
-    
-    [self performSelectorOnMainThread:@selector(updateCurrentInstructionLabel:) withObject:tempString waitUntilDone:YES];
-    
-    [self performSelectorOnMainThread:@selector(setRouteLayer:) withObject:route waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(updateCurrentInstructionLabel:) withObject:route waitUntilDone:YES];
 }
 
 - (void)getCurrentLocationFrequently

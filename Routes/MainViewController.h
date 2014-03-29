@@ -21,6 +21,7 @@
     // This label tells us how long is the route for.
     IBOutlet UILabel *summary;
     
+    IBOutlet UITextView *restInstructions;
     IBOutlet UILabel *currentInstructionLabel;
     
     TTUIMapViewController* mapViewController;
