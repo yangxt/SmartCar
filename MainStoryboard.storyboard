@@ -143,6 +143,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cameraView" destination="GF7-jf-DAf" id="WQb-ug-0Ld"/>
+                        <outlet property="carImageView" destination="PO0-Go-xUb" id="KxA-LY-461"/>
                         <outlet property="carView" destination="ahE-L1-gSl" id="OzT-pG-mlr"/>
                         <outlet property="currentInstructionLabel" destination="aGh-iu-5UH" id="IVa-ez-keH"/>
                         <outlet property="imageView" destination="GF7-jf-DAf" id="3JO-B4-02F"/>

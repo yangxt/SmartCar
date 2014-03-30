@@ -111,18 +111,53 @@ using namespace cv;
 
 - (void)outputAccelertionData:(CMAcceleration)acceleration
 {
-    if (fabs(acceleration.x) > .1||fabs(acceleration.x) > .1||fabs(acceleration.x) > .1){
-        NSLog(@"Accident !");
+    if (fabs(acceleration.x) > 1||fabs(acceleration.x) > 1||fabs(acceleration.x) > 1){
+        NSLog(@"Accident!");
     }
+    
     // NSLog(@"%@",[NSString stringWithFormat:@" %.2fg",acceleration.x]);
     
 }
 - (void)outputRotationData:(CMRotationRate)rotation
 {
-    if (fabs(rotation.x) > 0.1 || fabs(rotation.y) > 0.1 || fabs(rotation.x) > 0.1) {
+    if (fabs(rotation.x) > 0.3 || fabs(rotation.y) > 0.3 || fabs(rotation.x) > 0.3) {
         NSLog(@"Rotation x: %@", [NSString stringWithFormat:@" %.2f",rotation.x]);
         NSLog(@"Rotation y: %@", [NSString stringWithFormat:@" %.2f",rotation.y]);
         NSLog(@"Rotation z: %@", [NSString stringWithFormat:@" %.2f",rotation.z]);
+    }
+    
+    if (fabs(rotation.y) > 0.1) {
+        
+        // If rotation.y is negative, then car turns right, otherwise left! (experiment!)  :)
+        
+        if (rotation.y < 0) {
+            
+            if ([self.carImageView.layer.animationKeys count] < 1) {
+                // Car turns right
+                CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+                rotateAnimation.fromValue = [NSNumber numberWithFloat:0];
+                rotateAnimation.toValue = [NSNumber numberWithFloat:0.5*M_PI / 3];
+                rotateAnimation.duration = 0.6f;
+                rotateAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                
+                rotateAnimation.autoreverses = YES;
+                [self.carImageView.layer addAnimation:rotateAnimation forKey:@"rotateCWAnimation"];
+            }
+            
+        } else {
+            // Car turns left
+            
+            if ([self.carImageView.layer.animationKeys count] < 1) {
+                CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+                rotateAnimation.fromValue = [NSNumber numberWithFloat:0];
+                rotateAnimation.toValue = [NSNumber numberWithFloat:-0.5*M_PI / 3];
+                rotateAnimation.duration = 0.6f;
+                rotateAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                
+                rotateAnimation.autoreverses = YES;
+                [self.carImageView.layer addAnimation:rotateAnimation forKey:@"rotateCCWAnimation"];
+            }
+        }
     }
 }
 
