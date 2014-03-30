@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+// #define barTintColor [UIColor colorWithRed:(float)70/255 green:(float)122/255 blue:(float)255/255 alpha:1.0]
+#define barTintColor [UIColor colorWithRed:(float)70/255 green:(float)152/255 blue:(float)255/255 alpha:1.0]
 
 @implementation AppDelegate
 
@@ -24,6 +26,7 @@
     
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[UINavigationBar appearance] setBarTintColor:barTintColor];
     
     [self.window makeKeyAndVisible];
     return YES;

@@ -37,6 +37,7 @@
 		D47B6DCD18E7A4950090365C /* nav50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC518E7A4950090365C /* nav50@2x.png */; };
 		D47B6DCE18E7A4950090365C /* map50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC618E7A4950090365C /* map50@2x.png */; };
 		D47B6DCF18E7A4950090365C /* car_system50.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC718E7A4950090365C /* car_system50.png */; };
+		D47B6DD118E7A9760090365C /* carTopView.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DD018E7A9760090365C /* carTopView.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		D47B6DC518E7A4950090365C /* nav50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav50@2x.png"; sourceTree = "<group>"; };
 		D47B6DC618E7A4950090365C /* map50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map50@2x.png"; sourceTree = "<group>"; };
 		D47B6DC718E7A4950090365C /* car_system50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_system50.png; sourceTree = "<group>"; };
+		D47B6DD018E7A9760090365C /* carTopView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carTopView.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		D4589EA418E69F7C00DCF997 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D47B6DD018E7A9760090365C /* carTopView.png */,
 				D47B6DC018E7A4950090365C /* map50.png */,
 				D47B6DC618E7A4950090365C /* map50@2x.png */,
 				D47B6DC318E7A4950090365C /* nav50.png */,
@@ -232,6 +235,7 @@
 				D47B6DCD18E7A4950090365C /* nav50@2x.png in Resources */,
 				8B56394F150F8811002215F5 /* InfoPlist.strings in Resources */,
 				D47B6DCC18E7A4950090365C /* watchman50@2x.png in Resources */,
+				D47B6DD118E7A9760090365C /* carTopView.png in Resources */,
 				D47B6DC918E7A4950090365C /* car_system50@2x.png in Resources */,
 				D47B6DCE18E7A4950090365C /* map50@2x.png in Resources */,
 				D47B6DCA18E7A4950090365C /* watchman50.png in Resources */,

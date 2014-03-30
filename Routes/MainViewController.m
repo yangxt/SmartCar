@@ -28,24 +28,37 @@ using namespace cv;
 {
     [super viewDidLoad];
     
+    UIButton *setDestinationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 123, 32)];
+    [setDestinationButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [setDestinationButton setTitle:@"Set Destination" forState:UIControlStateNormal];
+    // #define barTintColor [UIColor colorWithRed:(float)70/255 green:(float)122/255 blue:(float)255/255 alpha:1.0]
+    setDestinationButton.layer.cornerRadius = 4.0f;
+    setDestinationButton.layer.borderColor = [UIColor blueColor].CGColor;
+    setDestinationButton.layer.borderWidth = 0.5f;
+    setDestinationButton.layer.masksToBounds = YES;
+    [setDestinationButton setBackgroundColor:[UIColor colorWithRed:(float)10/255 green:(float)122/255 blue:(float)255/255 alpha:1.0]];
+    [setDestinationButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:setDestinationButton];
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+    
     self.mapView.layer.cornerRadius = 5.0f;
     self.mapView.layer.masksToBounds = YES;
-    self.mapView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.mapView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.mapView.layer.borderWidth = 0.5f;
     
     self.navView.layer.cornerRadius = 5.0f;
     self.navView.layer.masksToBounds = YES;
-    self.navView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.navView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.navView.layer.borderWidth = 0.5f;
     
     self.carView.layer.cornerRadius = 5.0f;
     self.carView.layer.masksToBounds = YES;
-    self.carView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.carView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.carView.layer.borderWidth = 0.5f;
     
     self.cameraView.layer.cornerRadius = 5.0f;
     self.cameraView.layer.masksToBounds = YES;
-    self.cameraView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.cameraView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.cameraView.layer.borderWidth = 0.5f;
     
     videoCamera = [[CvVideoCamera alloc]
@@ -224,7 +237,7 @@ using namespace cv;
     [locationManager startUpdatingLocation];
     
     // Center the map on Paris, France.
-    [mapViewController centerOnLatitude:self.latitudelNumber andLongitude:self.longitudelNumber withZoomLevel:20];
+    [mapViewController centerOnLatitude:self.latitudelNumber andLongitude:self.longitudelNumber withZoomLevel:15];
     
     // Let's make sure that the Traffic is shown in the new version
     [[TTSDKContext sharedContext] setTileStyle:2];
@@ -238,8 +251,11 @@ using namespace cv;
     //Let's create a Route.
     TTAPIRouting *routing = [[TTAPIRouting alloc]init];
     
-    //Lot 21 latitude and longtitude: 40.344841, -74.645676
-    TTCoordinates *finalCoordinates = [[TTCoordinates alloc] initWithLatitude:[NSNumber numberWithDouble:40.344841] andLongitude:[NSNumber numberWithDouble:-74.645676]];
+    // Lot 21 latitude and longtitude: 40.344841, -74.645676
+    // Lot 28: 40.340756, -74.656755
+    // Princeton Metro Park: 40.319850, -74.630568
+
+    TTCoordinates *finalCoordinates = [[TTCoordinates alloc] initWithLatitude:[NSNumber numberWithDouble:40.319850] andLongitude:[NSNumber numberWithDouble:-74.630568]];
     
     TTCoordinates *paris = [[TTCoordinates alloc]initWithLatitude:self.latitudelNumber andLongitude:self.longitudelNumber];
     
