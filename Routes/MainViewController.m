@@ -106,7 +106,23 @@ using namespace cv;
                                     withHandler:^(CMGyroData *gyroData, NSError *error) {
                                         [self outputRotationData:gyroData.rotationRate];
                                     }];
+    
+    // Hardware
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(getCurrentHardwareInformation) userInfo:nil repeats:YES];
 
+}
+
+- (void) getCurrentHardwareInformation {
+    // NSLog(@"Fetch data from hardware.");
+    NSData *allHardwareData = [[NSData alloc] initWithContentsOfURL:
+                               [NSURL URLWithString:@"https://agent.electricimp.com/putVqm5RC6EY"]];
+    NSError *error;
+    NSDictionary *allHardware = [NSJSONSerialization
+                                 JSONObjectWithData:allHardwareData
+                                 options:kNilOptions
+                                 error:&error];
+    NSString *distance = [allHardware objectForKey:@"distance"];
+    NSLog(@"Distance: %@", distance);
 }
 
 - (void)outputAccelertionData:(CMAcceleration)acceleration
