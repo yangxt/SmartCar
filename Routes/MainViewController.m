@@ -14,6 +14,40 @@ using namespace cv;
 
 @implementation MainViewController {
     CLLocationManager *locationManager;
+    NSString *prevFirstInstructionStr;
+}
+
+@synthesize fliteController;
+@synthesize slt;
+@synthesize awb;
+@synthesize awb8k;
+
+- (FliteController *)fliteController {
+	if (fliteController == nil) {
+		fliteController = [[FliteController alloc] init];
+	}
+	return fliteController;
+}
+
+- (Slt *)slt {
+	if (slt == nil) {
+		slt = [[Slt alloc] init];
+	}
+	return slt;
+}
+
+- (Awb *)awb {
+	if (awb == nil) {
+		awb = [[Awb alloc] init];
+	}
+	return awb;
+}
+
+- (Awb8k *)awb8k {
+	if (awb8k == nil) {
+		awb8k = [[Awb8k alloc] init];
+	}
+	return awb8k;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -108,7 +142,11 @@ using namespace cv;
                                     }];
     
     // Hardware
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(getCurrentHardwareInformation) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(getCurrentHardwareInformation) userInfo:nil repeats:YES];
+    
+    
+    // [self.fliteController say:@"Today I am feeling great! Guess what, I am at Hack Princeton!!!" withVoice:self.awb];
+
 
 }
 
@@ -252,6 +290,13 @@ using namespace cv;
     
     if (firstInstruction.text != nil || firstInstruction.roadName != nil) {
         firstInstructionStr = [NSString stringWithFormat:@"%@ %@ %@\n", firstInstructionStr, firstInstruction.text, firstInstruction.roadName] ;
+        
+        if (![prevFirstInstructionStr isEqualToString:firstInstructionStr]) {
+            [self.fliteController say:firstInstructionStr withVoice:self.awb8k];
+        }
+        
+        prevFirstInstructionStr = firstInstructionStr;
+        
         self.routeSummaryLabel.hidden = NO;
     }
     
@@ -283,7 +328,7 @@ using namespace cv;
     // NSLog(@"Get current location.");
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    locationManager.distanceFilter = 0.0;
+    locationManager.distanceFilter = 1.0;
     
     [locationManager startUpdatingLocation];
     

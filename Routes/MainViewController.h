@@ -10,6 +10,10 @@
 #import <TomTomLBS/TTLBSSDK.h>
 #import <MapKit/MapKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import <Slt/Slt.h>
+#import <Awb/Awb.h>
+#import <Awb8k/Awb8k.h>
+#import <OpenEars/FliteController.h>
 
 @interface MainViewController : UIViewController <TTAPIRoutingDelegate, CLLocationManagerDelegate, CvVideoCameraDelegate>
 {
@@ -28,9 +32,19 @@
     TTUIMapViewController* mapViewController;
     TTAPIRoutingOptionalParameters *params;
     
+    FliteController *fliteController;
+    Slt *slt;
+    Awb *awb;
+    Awb8k *awb8k;
+    
     CvVideoCamera *videoCamera;
     BOOL isCapturing;
 }
+
+@property (strong, nonatomic) FliteController *fliteController;
+@property (strong, nonatomic) Slt *slt;
+@property (strong, nonatomic) Awb *awb;
+@property (strong, nonatomic) Awb8k *awb8k;
 
 @property (strong, nonatomic) IBOutlet UIView *mapView;
 @property (strong, nonatomic) IBOutlet UIView *carView;
