@@ -155,6 +155,31 @@ using namespace cv;
     // Hardware
     [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(getCurrentHardwareInformation) userInfo:nil repeats:YES];
 
+    
+    self.currentLocationImageView.hidden = YES;
+    [self performSelector:@selector(showCurrentLocationBall) withObject:nil afterDelay:3.0f];
+}
+
+- (void)showCurrentLocationBall
+{
+    self.currentLocationImageView.hidden = NO;
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(animateBall) userInfo:nil repeats:YES];
+}
+
+- (void)animateBall
+{
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.fromValue = [NSNumber numberWithFloat:0.7f];
+    scaleAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+    scaleAnimation.duration = 1.95f;
+    [self.currentLocationImageView.layer addAnimation:scaleAnimation forKey:@"scaleAnimation"];
+    
+    CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    opacityAnimation.fromValue = [NSNumber numberWithFloat:0.5f];
+    opacityAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+    opacityAnimation.duration = 1.95f;
+    [self.currentLocationImageView.layer addAnimation:opacityAnimation forKey:@"opacityAnimation"];
+
 }
 
 - (void) getCurrentHardwareInformation {
@@ -329,7 +354,7 @@ using namespace cv;
 
 - (void)getCurrentLocationFrequently
 {
-    if ([mapCanvas.subviews count] == 2) {
+    if ([mapCanvas.subviews count] == 5) {
         // Clear mapCanvas subviews all the time because it will be added again and again
         // Just remove one because an extra one is needed for continuous map displaying...  :)
         NSLog(@"Get rid of subviews... Hehe... to avoid memory pressure...");
@@ -361,6 +386,7 @@ using namespace cv;
     
     // Add the map to the map canvas
 	[mapCanvas addSubview:mapViewController.view];
+    [mapCanvas bringSubviewToFront:self.currentLocationImageView];
     
     //Let's create a Route.
     TTAPIRouting *routing = [[TTAPIRouting alloc] init];

@@ -49,6 +49,7 @@
 @property (strong, nonatomic) IBOutlet UIView *navView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *carImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *currentLocationImageView;
 
 @property (strong, nonatomic) IBOutlet UILabel *routeSummaryLabel;
 @property (strong, nonatomic) NSString *latitudeLabel;

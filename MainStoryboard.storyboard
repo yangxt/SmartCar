@@ -35,6 +35,12 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8t1-7E-8oN">
                                 <rect key="frame" x="10" y="142" width="369" height="392"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="current_location.png" translatesAutoresizingMaskIntoConstraints="NO" id="iDG-Pt-Xcc">
+                                        <rect key="frame" x="193" y="203" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map50.png" translatesAutoresizingMaskIntoConstraints="NO" id="nhJ-28-7nK">
@@ -151,6 +157,7 @@
                         <outlet property="carImageView" destination="PO0-Go-xUb" id="KxA-LY-461"/>
                         <outlet property="carView" destination="ahE-L1-gSl" id="OzT-pG-mlr"/>
                         <outlet property="currentInstructionLabel" destination="aGh-iu-5UH" id="IVa-ez-keH"/>
+                        <outlet property="currentLocationImageView" destination="iDG-Pt-Xcc" id="gE4-KT-Fry"/>
                         <outlet property="imageView" destination="GF7-jf-DAf" id="3JO-B4-02F"/>
                         <outlet property="mapCanvas" destination="8t1-7E-8oN" id="ywc-le-Lfe"/>
                         <outlet property="mapView" destination="8t1-7E-8oN" id="rQU-2z-fd5"/>
@@ -171,6 +178,7 @@
     <resources>
         <image name="car.png" width="79" height="160"/>
         <image name="car_system50.png" width="50" height="50"/>
+        <image name="current_location.png" width="128" height="128"/>
         <image name="map50.png" width="50" height="50"/>
         <image name="nav50.png" width="50" height="50"/>
         <image name="road.png" width="240" height="392"/>
