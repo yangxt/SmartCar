@@ -100,6 +100,10 @@
                                 <rect key="frame" x="10" y="612" width="369" height="392"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="road.png" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-ZM-yZ4">
+                                        <rect key="frame" x="64" y="0.0" width="240" height="392"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="PO0-Go-xUb">
                                         <rect key="frame" x="145" y="116" width="79" height="160"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,6 +172,7 @@
         <image name="car_system50.png" width="50" height="50"/>
         <image name="map50.png" width="50" height="50"/>
         <image name="nav50.png" width="50" height="50"/>
+        <image name="road.png" width="240" height="392"/>
         <image name="watchman50.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
