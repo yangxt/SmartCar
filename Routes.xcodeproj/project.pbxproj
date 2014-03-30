@@ -53,6 +53,8 @@
 		D47B6DF518E7F57F0090365C /* Awb8k.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DED18E7F57E0090365C /* Awb8k.framework */; };
 		D47B6E0018E7FFAF0090365C /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DFE18E7FFAF0090365C /* road.png */; };
 		D47B6E0118E7FFAF0090365C /* road@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DFF18E7FFAF0090365C /* road@2x.png */; };
+		D47B6E0818E810C20090365C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E0618E810C20090365C /* icon.png */; };
+		D47B6E0918E810C20090365C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E0718E810C20090365C /* icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,8 @@
 		D47B6DED18E7F57E0090365C /* Awb8k.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awb8k.framework; sourceTree = "<group>"; };
 		D47B6DFE18E7FFAF0090365C /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
 		D47B6DFF18E7FFAF0090365C /* road@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "road@2x.png"; sourceTree = "<group>"; };
+		D47B6E0618E810C20090365C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		D47B6E0718E810C20090365C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,8 @@
 		D4589EA418E69F7C00DCF997 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D47B6E0618E810C20090365C /* icon.png */,
+				D47B6E0718E810C20090365C /* icon@2x.png */,
 				D47B6DFE18E7FFAF0090365C /* road.png */,
 				D47B6DFF18E7FFAF0090365C /* road@2x.png */,
 				D47B6DC018E7A4950090365C /* map50.png */,
@@ -295,10 +301,12 @@
 				D47B6DCC18E7A4950090365C /* watchman50@2x.png in Resources */,
 				D47B6DC918E7A4950090365C /* car_system50@2x.png in Resources */,
 				D47B6E0018E7FFAF0090365C /* road.png in Resources */,
+				D47B6E0818E810C20090365C /* icon.png in Resources */,
 				D47B6DD418E7DCC60090365C /* car@2x.png in Resources */,
 				D47B6DCE18E7A4950090365C /* map50@2x.png in Resources */,
 				D47B6E0118E7FFAF0090365C /* road@2x.png in Resources */,
 				D47B6DCA18E7A4950090365C /* watchman50.png in Resources */,
+				D47B6E0918E810C20090365C /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

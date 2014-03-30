@@ -329,8 +329,19 @@ using namespace cv;
 
 - (void)getCurrentLocationFrequently
 {
+    if ([mapCanvas.subviews count] == 2) {
+        // Clear mapCanvas subviews all the time because it will be added again and again
+        // Just remove one because an extra one is needed for continuous map displaying...  :)
+        NSLog(@"Get rid of subviews... Hehe... to avoid memory pressure...");
+        UIView *subview = [mapCanvas.subviews objectAtIndex:0];
+        [subview removeFromSuperview];
+    }
+    
+    [mapCanvas setUserInteractionEnabled:NO];
+    
     CGRect mapFrame = CGRectMake(0, 0, mapCanvas.frame.size.width, mapCanvas.frame.size.height);
 	mapViewController = [[TTUIMapViewController alloc] initWithFrame: mapFrame andInitialMaxConcurrentOperations: 2];
+    [mapViewController setClearAllTilesOnMemoryWarning:YES];
     
     // NSLog(@"Get current location.");
     locationManager.delegate = self;
@@ -352,7 +363,7 @@ using namespace cv;
 	[mapCanvas addSubview:mapViewController.view];
     
     //Let's create a Route.
-    TTAPIRouting *routing = [[TTAPIRouting alloc]init];
+    TTAPIRouting *routing = [[TTAPIRouting alloc] init];
     
     // Lot 21 latitude and longtitude: 40.344841, -74.645676
     // Lot 28: 40.340756, -74.656755

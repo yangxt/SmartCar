@@ -22,10 +22,6 @@
     [Parse setApplicationId:@"EWQiZVAgbc923Gt1wnwjSYfrG3HeXgkF7NpBMEXU"
                   clientKey:@"ynek3OgxJST95frgszoIGQkApxUVxfmiLxWVvwDl"];
     
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
