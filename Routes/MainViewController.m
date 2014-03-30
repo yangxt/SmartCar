@@ -295,6 +295,19 @@ using namespace cv;
     [actionSheet showFromBarButtonItem:sender animated:YES];
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        
+        // Choose Your Destination
+    
+    } else if (buttonIndex == 1) {
+        
+        // Set Emergency Contact
+        
+    }
+}
+
 - (void)processImage:(cv::Mat&)image
 {
     // Do some OpenCV processing with the image
