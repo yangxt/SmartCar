@@ -28,6 +28,26 @@ using namespace cv;
 {
     [super viewDidLoad];
     
+    self.mapView.layer.cornerRadius = 5.0f;
+    self.mapView.layer.masksToBounds = YES;
+    self.mapView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.mapView.layer.borderWidth = 0.5f;
+    
+    self.navView.layer.cornerRadius = 5.0f;
+    self.navView.layer.masksToBounds = YES;
+    self.navView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.navView.layer.borderWidth = 0.5f;
+    
+    self.carView.layer.cornerRadius = 5.0f;
+    self.carView.layer.masksToBounds = YES;
+    self.carView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.carView.layer.borderWidth = 0.5f;
+    
+    self.cameraView.layer.cornerRadius = 5.0f;
+    self.cameraView.layer.masksToBounds = YES;
+    self.cameraView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.cameraView.layer.borderWidth = 0.5f;
+    
     videoCamera = [[CvVideoCamera alloc]
                         initWithParentView:self.imageView];
     videoCamera.delegate = self;

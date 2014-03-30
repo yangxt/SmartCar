@@ -29,6 +29,14 @@
 		D47B6DAC18E7189E0090365C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DAB18E7189E0090365C /* CoreMedia.framework */; };
 		D47B6DAE18E718CB0090365C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DAD18E718CB0090365C /* AssetsLibrary.framework */; };
 		D47B6DB518E76E930090365C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DA918E7186D0090365C /* CoreMotion.framework */; };
+		D47B6DC818E7A4950090365C /* map50.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC018E7A4950090365C /* map50.png */; };
+		D47B6DC918E7A4950090365C /* car_system50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC118E7A4950090365C /* car_system50@2x.png */; };
+		D47B6DCA18E7A4950090365C /* watchman50.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC218E7A4950090365C /* watchman50.png */; };
+		D47B6DCB18E7A4950090365C /* nav50.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC318E7A4950090365C /* nav50.png */; };
+		D47B6DCC18E7A4950090365C /* watchman50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC418E7A4950090365C /* watchman50@2x.png */; };
+		D47B6DCD18E7A4950090365C /* nav50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC518E7A4950090365C /* nav50@2x.png */; };
+		D47B6DCE18E7A4950090365C /* map50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC618E7A4950090365C /* map50@2x.png */; };
+		D47B6DCF18E7A4950090365C /* car_system50.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DC718E7A4950090365C /* car_system50.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +67,14 @@
 		D47B6DA918E7186D0090365C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		D47B6DAB18E7189E0090365C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D47B6DAD18E718CB0090365C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		D47B6DC018E7A4950090365C /* map50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map50.png; sourceTree = "<group>"; };
+		D47B6DC118E7A4950090365C /* car_system50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car_system50@2x.png"; sourceTree = "<group>"; };
+		D47B6DC218E7A4950090365C /* watchman50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchman50.png; sourceTree = "<group>"; };
+		D47B6DC318E7A4950090365C /* nav50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav50.png; sourceTree = "<group>"; };
+		D47B6DC418E7A4950090365C /* watchman50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchman50@2x.png"; sourceTree = "<group>"; };
+		D47B6DC518E7A4950090365C /* nav50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav50@2x.png"; sourceTree = "<group>"; };
+		D47B6DC618E7A4950090365C /* map50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map50@2x.png"; sourceTree = "<group>"; };
+		D47B6DC718E7A4950090365C /* car_system50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car_system50.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +154,14 @@
 		D4589EA418E69F7C00DCF997 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D47B6DC018E7A4950090365C /* map50.png */,
+				D47B6DC618E7A4950090365C /* map50@2x.png */,
+				D47B6DC318E7A4950090365C /* nav50.png */,
+				D47B6DC518E7A4950090365C /* nav50@2x.png */,
+				D47B6DC218E7A4950090365C /* watchman50.png */,
+				D47B6DC418E7A4950090365C /* watchman50@2x.png */,
+				D47B6DC718E7A4950090365C /* car_system50.png */,
+				D47B6DC118E7A4950090365C /* car_system50@2x.png */,
 				8B56394B150F8811002215F5 /* InfoPlist.strings */,
 				8B563933150F866B002215F5 /* main.m */,
 				8B563944150F870D002215F5 /* Routes-Info.plist */,
@@ -201,8 +225,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47B6DCB18E7A4950090365C /* nav50.png in Resources */,
+				D47B6DC818E7A4950090365C /* map50.png in Resources */,
+				D47B6DCF18E7A4950090365C /* car_system50.png in Resources */,
 				D4589EA818E6A66F00DCF997 /* MainStoryboard.storyboard in Resources */,
+				D47B6DCD18E7A4950090365C /* nav50@2x.png in Resources */,
 				8B56394F150F8811002215F5 /* InfoPlist.strings in Resources */,
+				D47B6DCC18E7A4950090365C /* watchman50@2x.png in Resources */,
+				D47B6DC918E7A4950090365C /* car_system50@2x.png in Resources */,
+				D47B6DCE18E7A4950090365C /* map50@2x.png in Resources */,
+				D47B6DCA18E7A4950090365C /* watchman50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

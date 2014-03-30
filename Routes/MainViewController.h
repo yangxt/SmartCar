@@ -32,6 +32,11 @@
     BOOL isCapturing;
 }
 
+@property (strong, nonatomic) IBOutlet UIView *mapView;
+@property (strong, nonatomic) IBOutlet UIView *carView;
+@property (strong, nonatomic) IBOutlet UIImageView *cameraView;
+@property (strong, nonatomic) IBOutlet UIView *navView;
+
 @property (strong, nonatomic) IBOutlet UILabel *routeSummaryLabel;
 @property (strong, nonatomic) NSString *latitudeLabel;
 @property (strong, nonatomic) NSString *longitudeLabel;
