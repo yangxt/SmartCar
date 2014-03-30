@@ -56,6 +56,11 @@
 		D47B6E0818E810C20090365C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E0618E810C20090365C /* icon.png */; };
 		D47B6E0918E810C20090365C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E0718E810C20090365C /* icon@2x.png */; };
 		D47B6E0B18E812350090365C /* current_location.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E0A18E812350090365C /* current_location.png */; };
+		D47B6E0D18E818BF0090365C /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E0C18E818BF0090365C /* up.png */; };
+		D47B6E1018E81E740090365C /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E0E18E81E740090365C /* settings@2x.png */; };
+		D47B6E1118E81E740090365C /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E0F18E81E740090365C /* settings.png */; };
+		D47B6E1418E822B90090365C /* BackgroundTexture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E1218E822B90090365C /* BackgroundTexture@2x.png */; };
+		D47B6E1518E822B90090365C /* BackgroundTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = D47B6E1318E822B90090365C /* BackgroundTexture.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +118,11 @@
 		D47B6E0618E810C20090365C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D47B6E0718E810C20090365C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		D47B6E0A18E812350090365C /* current_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = current_location.png; sourceTree = "<group>"; };
+		D47B6E0C18E818BF0090365C /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		D47B6E0E18E81E740090365C /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		D47B6E0F18E81E740090365C /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		D47B6E1218E822B90090365C /* BackgroundTexture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackgroundTexture@2x.png"; sourceTree = "<group>"; };
+		D47B6E1318E822B90090365C /* BackgroundTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundTexture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,8 +224,13 @@
 		D4589EA418E69F7C00DCF997 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D47B6E0C18E818BF0090365C /* up.png */,
 				D47B6E0618E810C20090365C /* icon.png */,
 				D47B6E0718E810C20090365C /* icon@2x.png */,
+				D47B6E0E18E81E740090365C /* settings@2x.png */,
+				D47B6E1218E822B90090365C /* BackgroundTexture@2x.png */,
+				D47B6E1318E822B90090365C /* BackgroundTexture.png */,
+				D47B6E0F18E81E740090365C /* settings.png */,
 				D47B6E0A18E812350090365C /* current_location.png */,
 				D47B6DFE18E7FFAF0090365C /* road.png */,
 				D47B6DFF18E7FFAF0090365C /* road@2x.png */,
@@ -293,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D47B6DE818E7F3770090365C /* AcousticModelEnglish.bundle in Resources */,
+				D47B6E1518E822B90090365C /* BackgroundTexture.png in Resources */,
 				D47B6DCB18E7A4950090365C /* nav50.png in Resources */,
 				D47B6DC818E7A4950090365C /* map50.png in Resources */,
 				D47B6DE918E7F3770090365C /* AcousticModelSpanish.bundle in Resources */,
@@ -302,11 +318,15 @@
 				8B56394F150F8811002215F5 /* InfoPlist.strings in Resources */,
 				D47B6DD518E7DCC60090365C /* car.png in Resources */,
 				D47B6DCC18E7A4950090365C /* watchman50@2x.png in Resources */,
+				D47B6E0D18E818BF0090365C /* up.png in Resources */,
 				D47B6DC918E7A4950090365C /* car_system50@2x.png in Resources */,
 				D47B6E0018E7FFAF0090365C /* road.png in Resources */,
+				D47B6E1418E822B90090365C /* BackgroundTexture@2x.png in Resources */,
 				D47B6E0818E810C20090365C /* icon.png in Resources */,
+				D47B6E1118E81E740090365C /* settings.png in Resources */,
 				D47B6DD418E7DCC60090365C /* car@2x.png in Resources */,
 				D47B6DCE18E7A4950090365C /* map50@2x.png in Resources */,
+				D47B6E1018E81E740090365C /* settings@2x.png in Resources */,
 				D47B6E0118E7FFAF0090365C /* road@2x.png in Resources */,
 				D47B6DCA18E7A4950090365C /* watchman50.png in Resources */,
 				D47B6E0918E810C20090365C /* icon@2x.png in Resources */,

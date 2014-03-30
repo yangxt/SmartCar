@@ -71,11 +71,14 @@ using namespace cv;
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundTexture"]];
+    
     [restInstructions addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:NULL];
     
-    UIButton *setDestinationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 123, 32)];
+    /*
+    UIButton *setDestinationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 153, 32)];
     [setDestinationButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [setDestinationButton setTitle:@"Set Destination" forState:UIControlStateNormal];
+    [setDestinationButton setTitle:@"Choose Destination" forState:UIControlStateNormal];
     // #define barTintColor [UIColor colorWithRed:(float)70/255 green:(float)122/255 blue:(float)255/255 alpha:1.0]
     setDestinationButton.layer.cornerRadius = 4.0f;
     setDestinationButton.layer.borderColor = [UIColor blueColor].CGColor;
@@ -85,6 +88,20 @@ using namespace cv;
     [setDestinationButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:setDestinationButton];
     self.navigationItem.rightBarButtonItem = barButtonItem;
+    
+    UIButton *contactButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 153, 32)];
+    [contactButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [contactButton setTitle:@"Emergency Contact" forState:UIControlStateNormal];
+    // #define barTintColor [UIColor colorWithRed:(float)70/255 green:(float)122/255 blue:(float)255/255 alpha:1.0]
+    contactButton.layer.cornerRadius = 4.0f;
+    contactButton.layer.borderColor = [UIColor blueColor].CGColor;
+    contactButton.layer.borderWidth = 0.5f;
+    contactButton.layer.masksToBounds = YES;
+    [contactButton setBackgroundColor:[UIColor colorWithRed:(float)10/255 green:(float)122/255 blue:(float)255/255 alpha:1.0]];
+    [contactButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    UIBarButtonItem *contactBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:contactButton];
+    self.navigationItem.leftBarButtonItem = contactBarButtonItem;
+     */
     
     self.mapView.layer.cornerRadius = 5.0f;
     self.mapView.layer.masksToBounds = YES;
@@ -184,14 +201,22 @@ using namespace cv;
 
 - (void) getCurrentHardwareInformation {
     // NSLog(@"Fetch data from hardware.");
-    NSData *allHardwareData = [[NSData alloc] initWithContentsOfURL:
-                               [NSURL URLWithString:@"https://agent.electricimp.com/putVqm5RC6EY"]];
+    NSData *allHardwareData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:@"https://agent.electricimp.com/putVqm5RC6EY"]];
     NSError *error;
     NSDictionary *allHardware = [NSJSONSerialization
                                  JSONObjectWithData:allHardwareData
                                  options:kNilOptions
                                  error:&error];
     NSString *distance = [allHardware objectForKey:@"distance"];
+    
+    if ([distance intValue] < 6800) {
+        NSLog(@"Watch Front/Back/Left/Right");
+        
+        // Play Audio File
+        
+        // Display Alert Aignal
+    }
+    
     NSLog(@"Distance: %@", distance);
 }
 
@@ -258,6 +283,11 @@ using namespace cv;
 {
     [videoCamera stop];
     isCapturing = NO;
+}
+
+- (IBAction)showSettings:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"App Settings" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Choose Your Destination", @"Set Emergency Contact", nil];
+    [actionSheet showFromBarButtonItem:sender animated:YES];
 }
 
 - (void)processImage:(cv::Mat&)image
@@ -352,6 +382,11 @@ using namespace cv;
     [self performSelectorOnMainThread:@selector(updateCurrentInstructionLabel:) withObject:route waitUntilDone:YES];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    NSLog(@"Memory Warning...");
+}
+
 - (void)getCurrentLocationFrequently
 {
     if ([mapCanvas.subviews count] == 5) {
@@ -360,13 +395,13 @@ using namespace cv;
         NSLog(@"Get rid of subviews... Hehe... to avoid memory pressure...");
         UIView *subview = [mapCanvas.subviews objectAtIndex:0];
         [subview removeFromSuperview];
+        NSLog(@"%d", [mapCanvas.subviews count]);
     }
     
     [mapCanvas setUserInteractionEnabled:NO];
     
     CGRect mapFrame = CGRectMake(0, 0, mapCanvas.frame.size.width, mapCanvas.frame.size.height);
 	mapViewController = [[TTUIMapViewController alloc] initWithFrame: mapFrame andInitialMaxConcurrentOperations: 2];
-    [mapViewController setClearAllTilesOnMemoryWarning:YES];
     
     // NSLog(@"Get current location.");
     locationManager.delegate = self;

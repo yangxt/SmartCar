@@ -14,7 +14,7 @@
 #import <Awb8k/Awb8k.h>
 #import <OpenEars/FliteController.h>
 
-@interface MainViewController : UIViewController <TTAPIRoutingDelegate, CLLocationManagerDelegate, CvVideoCameraDelegate>
+@interface MainViewController : UIViewController <TTAPIRoutingDelegate, CLLocationManagerDelegate, CvVideoCameraDelegate, UIActionSheetDelegate>
 {
     // This is the View that contains our map
     IBOutlet UIView* mapCanvas;
@@ -70,6 +70,7 @@
 // - (void)setInstructionsLabel:(NSString *)text;
 - (IBAction)startCaptureButtonPressed:(id)sender;
 - (IBAction)stopCaptureButtonPressed:(id)sender;
+- (IBAction)showSettings:(id)sender;
 
 - (void)updateCurrentInstructionLabel:(NSString *)text;
 

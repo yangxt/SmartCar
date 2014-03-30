@@ -92,6 +92,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="watchman50.png" translatesAutoresizingMaskIntoConstraints="NO" id="7KA-2U-y5j">
                                 <rect key="frame" x="493" y="554" width="50" height="50"/>
@@ -108,14 +109,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="road.png" translatesAutoresizingMaskIntoConstraints="NO" id="TgY-ZM-yZ4">
-                                        <rect key="frame" x="64" y="0.0" width="240" height="392"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="369" height="392"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="PO0-Go-xUb">
                                         <rect key="frame" x="145" y="116" width="79" height="160"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up.png" translatesAutoresizingMaskIntoConstraints="NO" id="j7v-vk-Tva">
+                                        <rect key="frame" x="139" y="38" width="90" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car_system50.png" translatesAutoresizingMaskIntoConstraints="NO" id="tSd-22-4Od">
                                 <rect key="frame" x="138" y="554" width="50" height="50"/>
@@ -148,8 +154,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="SmartCar Assistant" id="Jck-Wn-VOU">
-                        <barButtonItem key="rightBarButtonItem" title="Set Destination" id="Yfb-X8-UpA">
+                        <barButtonItem key="rightBarButtonItem" image="settings.png" id="hyz-QK-U3o">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="showSettings:" destination="Qwv-gf-FFB" id="FWL-rb-flV"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -182,6 +191,8 @@
         <image name="map50.png" width="50" height="50"/>
         <image name="nav50.png" width="50" height="50"/>
         <image name="road.png" width="240" height="392"/>
+        <image name="settings.png" width="22" height="22"/>
+        <image name="up.png" width="500" height="391"/>
         <image name="watchman50.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
