@@ -210,14 +210,14 @@ using namespace cv;
     NSString *distance = [allHardware objectForKey:@"distance"];
     
     if ([distance intValue] < 6800) {
-        NSLog(@"Watch Front/Back/Left/Right");
+        // NSLog(@"Watch Front/Back/Left/Right");
         
         // Play Audio File
         
         // Display Alert Aignal
     }
     
-    NSLog(@"Distance: %@", distance);
+    // NSLog(@"Distance: %@", distance);
 }
 
 - (void)outputAccelertionData:(CMAcceleration)acceleration
@@ -237,6 +237,8 @@ using namespace cv;
         NSLog(@"Rotation z: %@", [NSString stringWithFormat:@" %.2f",rotation.z]);
     }
     
+    // NSLog(@"animations added to layer: %d", [self.carImageView.layer.animationKeys count]);
+    
     if (fabs(rotation.y) > 0.1) {
         
         // If rotation.y is negative, then car turns right, otherwise left! (experiment!)  :)
@@ -245,6 +247,8 @@ using namespace cv;
             
             if ([self.carImageView.layer.animationKeys count] < 1) {
                 // Car turns right
+                
+                NSLog(@"Car turns RIGHT!");
                 CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
                 rotateAnimation.fromValue = [NSNumber numberWithFloat:0];
                 rotateAnimation.toValue = [NSNumber numberWithFloat:0.5*M_PI / 3];
@@ -259,6 +263,9 @@ using namespace cv;
             // Car turns left
             
             if ([self.carImageView.layer.animationKeys count] < 1) {
+
+                NSLog(@"Car turns LEFT!");
+
                 CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
                 rotateAnimation.fromValue = [NSNumber numberWithFloat:0];
                 rotateAnimation.toValue = [NSNumber numberWithFloat:-0.5*M_PI / 3];
@@ -392,10 +399,8 @@ using namespace cv;
     if ([mapCanvas.subviews count] == 5) {
         // Clear mapCanvas subviews all the time because it will be added again and again
         // Just remove one because an extra one is needed for continuous map displaying...  :)
-        NSLog(@"Get rid of subviews... Hehe... to avoid memory pressure...");
         UIView *subview = [mapCanvas.subviews objectAtIndex:0];
         [subview removeFromSuperview];
-        NSLog(@"%d", [mapCanvas.subviews count]);
     }
     
     [mapCanvas setUserInteractionEnabled:NO];
