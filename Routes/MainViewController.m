@@ -19,7 +19,6 @@ using namespace cv;
 
 @synthesize fliteController;
 @synthesize slt;
-@synthesize awb;
 @synthesize awb8k;
 
 - (FliteController *)fliteController {
@@ -34,13 +33,6 @@ using namespace cv;
 		slt = [[Slt alloc] init];
 	}
 	return slt;
-}
-
-- (Awb *)awb {
-	if (awb == nil) {
-		awb = [[Awb alloc] init];
-	}
-	return awb;
 }
 
 - (Awb8k *)awb8k {
@@ -58,9 +50,28 @@ using namespace cv;
     }
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    UITextView *tv = object;
+    
+    //Center vertical alignment
+    //CGFloat topCorrect = ([tv bounds].size.height - [tv contentSize].height * [tv zoomScale])/2.0;
+    //topCorrect = ( topCorrect < 0.0 ? 0.0 : topCorrect );
+    //tv.contentOffset = (CGPoint){.x = 0, .y = -topCorrect};
+    
+    //Bottom vertical alignment
+    CGFloat topCorrect = ([tv bounds].size.height - [tv contentSize].height);
+    topCorrect = (topCorrect <0.0 ? 0.0 : topCorrect);
+    tv.contentOffset = (CGPoint){.x = 0, .y = -topCorrect};
+    
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [restInstructions addObserver:self forKeyPath:@"contentSize" options:(NSKeyValueObservingOptionNew) context:NULL];
     
     UIButton *setDestinationButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 123, 32)];
     [setDestinationButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
@@ -142,11 +153,7 @@ using namespace cv;
                                     }];
     
     // Hardware
-    [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(getCurrentHardwareInformation) userInfo:nil repeats:YES];
-    
-    
-    // [self.fliteController say:@"Today I am feeling great! Guess what, I am at Hack Princeton!!!" withVoice:self.awb];
-
+    [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(getCurrentHardwareInformation) userInfo:nil repeats:YES];
 
 }
 
@@ -359,7 +366,7 @@ using namespace cv;
     params =
     [[TTAPIRoutingOptionalParameters alloc]init];
     params.includeDataPath = YES;
-    params.dataPathZoomLevel = 17;
+    params.dataPathZoomLevel = 15;
     
     [routing getRouteWithStartPoint:paris andEndPoint:finalCoordinates andRouteType:Walk andOptionalParameters:params andNotifyDelegate:self withPayload:nil];
     

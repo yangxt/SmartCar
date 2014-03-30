@@ -11,7 +11,6 @@
 #import <MapKit/MapKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import <Slt/Slt.h>
-#import <Awb/Awb.h>
 #import <Awb8k/Awb8k.h>
 #import <OpenEars/FliteController.h>
 
@@ -34,7 +33,6 @@
     
     FliteController *fliteController;
     Slt *slt;
-    Awb *awb;
     Awb8k *awb8k;
     
     CvVideoCamera *videoCamera;
@@ -43,7 +41,6 @@
 
 @property (strong, nonatomic) FliteController *fliteController;
 @property (strong, nonatomic) Slt *slt;
-@property (strong, nonatomic) Awb *awb;
 @property (strong, nonatomic) Awb8k *awb8k;
 
 @property (strong, nonatomic) IBOutlet UIView *mapView;

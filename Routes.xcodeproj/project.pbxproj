@@ -50,7 +50,6 @@
 		D47B6DE918E7F3770090365C /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D47B6DE518E7F3770090365C /* AcousticModelSpanish.bundle */; };
 		D47B6DEA18E7F3770090365C /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DE618E7F3770090365C /* OpenEars.framework */; };
 		D47B6DEB18E7F3770090365C /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DE718E7F3770090365C /* Slt.framework */; };
-		D47B6DF418E7F57F0090365C /* Awb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DEC18E7F57E0090365C /* Awb.framework */; };
 		D47B6DF518E7F57F0090365C /* Awb8k.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47B6DED18E7F57E0090365C /* Awb8k.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +102,6 @@
 		D47B6DE518E7F3770090365C /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
 		D47B6DE618E7F3770090365C /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		D47B6DE718E7F3770090365C /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
-		D47B6DEC18E7F57E0090365C /* Awb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awb.framework; sourceTree = "<group>"; };
 		D47B6DED18E7F57E0090365C /* Awb8k.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Awb8k.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,7 +118,6 @@
 				8BA5F384150DF0FA004CF91E /* QuartzCore.framework in Frameworks */,
 				D47B6DDB18E7DDFA0090365C /* MobileCoreServices.framework in Frameworks */,
 				8BA5F380150DF0DC004CF91E /* libz.dylib in Frameworks */,
-				D47B6DF418E7F57F0090365C /* Awb.framework in Frameworks */,
 				D47B6DD918E7DDE90090365C /* CFNetwork.framework in Frameworks */,
 				D47B6DEB18E7F3770090365C /* Slt.framework in Frameworks */,
 				D47B6DD718E7DDE40090365C /* AudioToolbox.framework in Frameworks */,
@@ -171,7 +168,6 @@
 		8BA5F332150A48DA004CF91E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D47B6DEC18E7F57E0090365C /* Awb.framework */,
 				D47B6DED18E7F57E0090365C /* Awb8k.framework */,
 				D47B6DE418E7F3770090365C /* AcousticModelEnglish.bundle */,
 				D47B6DE518E7F3770090365C /* AcousticModelSpanish.bundle */,
