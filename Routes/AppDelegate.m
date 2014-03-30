@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 // #define barTintColor [UIColor colorWithRed:(float)70/255 green:(float)122/255 blue:(float)255/255 alpha:1.0]
 #define barTintColor [UIColor colorWithRed:(float)70/255 green:(float)152/255 blue:(float)255/255 alpha:1.0]
 
@@ -17,6 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Paul's Parse Account
+    [Parse setApplicationId:@"EWQiZVAgbc923Gt1wnwjSYfrG3HeXgkF7NpBMEXU"
+                  clientKey:@"ynek3OgxJST95frgszoIGQkApxUVxfmiLxWVvwDl"];
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    [testObject saveInBackground];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];

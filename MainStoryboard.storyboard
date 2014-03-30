@@ -100,7 +100,7 @@
                                 <rect key="frame" x="10" y="612" width="369" height="392"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carTopView.png" translatesAutoresizingMaskIntoConstraints="NO" id="PO0-Go-xUb">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="PO0-Go-xUb">
                                         <rect key="frame" x="145" y="116" width="79" height="160"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
@@ -163,7 +163,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="carTopView.png" width="476" height="960"/>
+        <image name="car.png" width="79" height="160"/>
         <image name="car_system50.png" width="50" height="50"/>
         <image name="map50.png" width="50" height="50"/>
         <image name="nav50.png" width="50" height="50"/>
