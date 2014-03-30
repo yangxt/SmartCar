@@ -231,15 +231,13 @@ using namespace cv;
 }
 - (void)outputRotationData:(CMRotationRate)rotation
 {
-    if (fabs(rotation.x) > 0.3 || fabs(rotation.y) > 0.3 || fabs(rotation.x) > 0.3) {
-        NSLog(@"Rotation x: %@", [NSString stringWithFormat:@" %.2f",rotation.x]);
-        NSLog(@"Rotation y: %@", [NSString stringWithFormat:@" %.2f",rotation.y]);
-        NSLog(@"Rotation z: %@", [NSString stringWithFormat:@" %.2f",rotation.z]);
-    }
-    
     // NSLog(@"animations added to layer: %d", [self.carImageView.layer.animationKeys count]);
     
     if (fabs(rotation.y) > 0.1) {
+        
+        NSLog(@"Rotation x: %@", [NSString stringWithFormat:@" %.2f",rotation.x]);
+        NSLog(@"Rotation y: %@", [NSString stringWithFormat:@" %.2f",rotation.y]);
+        NSLog(@"Rotation z: %@", [NSString stringWithFormat:@" %.2f",rotation.z]);
         
         // If rotation.y is negative, then car turns right, otherwise left! (experiment!)  :)
         
